@@ -1,0 +1,12 @@
+#!/bin/sh
+if [ $# -eq 1 ]; then
+    echo 'varnishd (varnish-3.0.2 revision 55e70a4)'
+    echo 'Copyright (c) 2006 Verdens Gang AS'
+    echo 'Copyright (c) 2006-2011 Varnish Software AS'
+    exit 0
+fi
+
+# fake varnishd exec
+while :; do
+	sleep 99999
+done

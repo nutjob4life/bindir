@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# Show a handy "OK" dialog on macOS with a message
+#
+
+PATH=/usr/bin:/bin:/usr/sbin:/sbin
+export PATH
+
+if [ $# -eq 0 ]; then
+    echo "Usage: message to display…" 1>&2
+    exit 1
+fi
+
+exec osascript - <<EOF
+tell app "System Events" to display dialog "$@"
+EOF

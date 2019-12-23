@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# edrndir - Search EDRN's Directory Service
+#
+
+. $HOME/.secrets/passwords.sh
+
+exec /usr/bin/env LDAPTLS_REQCERT=never \
+     /usr/bin/ldapsearch \
+    -b dc=edrn,dc=jpl,dc=nasa,dc=gov \
+    -s one \
+    -D uid=skelly,dc=edrn,dc=jpl,dc=nasa,dc=gov \
+    -H ldaps://edrn.jpl.nasa.gov \
+    -w '$edrn_skelly_password' \
+    -x \
+    "$@"

@@ -1,0 +1,15 @@
+develop-eggs/
+eggs/
+parts/
+.*.cfg
+aws*
+buildout
+coala*
+flake8
+lance
+mybob
+pycodestyle
+pyflakes
+rst2*
+sphinx*
+yamale

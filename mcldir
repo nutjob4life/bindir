@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# mcldir - Search MCL's Directory Service
+#
+
+. $HOME/.secrets/passwords.sh
+
+exec /usr/bin/env LDAPTLS_REQCERT=never \
+     /usr/bin/ldapsearch \
+    -b o=MCL \
+    -s sub \
+    -D uid=kelly,ou=users,o=MCL \
+    -H ldaps://edrn.jpl.nasa.gov \
+    -w "$mcl_kelly_password" \
+    -x \
+    "$@"

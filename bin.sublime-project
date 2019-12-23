@@ -1,0 +1,34 @@
+{
+   "folders" : [
+      {
+         "file_exclude_patterns" : [
+            ".*.cfg",
+            "bootstrap.py",
+            "doc.txt",
+            "*.sublime-*",
+            "aws*",
+            "buildout",
+            "coala*",
+            "flake8",
+            "lance",
+            "mrbob",
+            "pycodestyle",
+            "pyflakes",
+            "rst2*",
+            "sphinx*",
+            "yamale"
+         ],
+         "folder_exclude_patterns" : [
+            "bin",
+            "develop-eggs",
+            "dist",
+            "build",
+            "*.egg-info",
+            "parts",
+            "var",
+            "__pycache__"
+         ],
+         "path" : "."
+      }
+   ]
+}

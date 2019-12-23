@@ -1,0 +1,26 @@
+#!/usr/bin/env python3
+#
+# Convert a Git repository URL from HTTPS to SSH
+#
+# For example, if you have
+#   https://github.com/EDRN/P5.wiki.git
+# you will get
+#   git@github.com:EDRN/P5.wiki.git
+#
+# Use with command substitution, i.e., backticks or ``$(…)``
+
+import argparse, sys, urllib.parse
+
+
+def main():
+    argParser = argparse.ArgumentParser(description='Rewrite a Git HTTPS URL to an SSH URL')
+    argParser.add_argument('url', help='HTTPS style Git URL to convert to SSH')
+    args = argParser.parse_args()
+    url = urllib.parse.urlparse(args.url)
+    netloc, path = url.netloc, url.path[1:]
+    print(f'git@{netloc}:{path}')
+    sys.exit(0)
+
+
+if __name__ == '__main__':
+    main()
