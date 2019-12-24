@@ -14,7 +14,7 @@
             "mrbob",
             "pycodestyle",
             "pyflakes",
-            "rst2*",
+            "rst*",
             "sphinx*",
             "yamale"
          ],
