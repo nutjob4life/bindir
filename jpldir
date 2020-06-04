@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# jpldir - Search JPL's Directory Service
+#
+
+. $HOME/.secrets/passwords.sh
+
+exec /usr/bin/env LDAPTLS_REQCERT=never \
+     /usr/bin/ldapsearch \
+    -b ou=personnel,dc=dir,dc=jpl,dc=nasa,dc=gov \
+    -s one \
+    -D uid=kelly,ou=personnel,dc=dir,dc=jpl,dc=nasa,dc=gov \
+    -H ldaps://ldap.jpl.nasa.gov \
+    -w "$jpl_kelly_password" \
+    -x \
+    "$@"
