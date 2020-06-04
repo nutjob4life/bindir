@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# Fetch log files from the EDRN operations portal and show 'em
+#
+# kelly 2020-06-03 created
+
+# Protect against maliciously placed programs
+PATH=/usr/local/bin:/usr/bin:/bin
+export PATH
+PAGER=${PAGER:-less}
+
+# Pick up secrets
+. ${HOME}/.secrets/passwords.sh
+
+# Check if we got the password
+if [ ! -n "$nih_kellysc_password" ]; then
+    echo 'No value for nih_kellysc_password in passwords.sh; aborting' 1>&2
+    exit 1
+fi
+
+fn=`mktemp`
+curl --location --silent --user "kellysc:$nih_kellysc_password" 'https://edrn.nci.nih.gov/logs/instance.log' > $fn
+exec $PAGER $fn
