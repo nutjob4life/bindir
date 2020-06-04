@@ -13,3 +13,6 @@ pyflakes
 rst*
 sphinx*
 yamale
+yamllint
+markdown2
+jsvc
