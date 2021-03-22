@@ -1,0 +1,28 @@
+#!/bin/sh
+
+. $HOME/.secrets/passwords.sh
+
+usage() {
+    echo "`basename $0` [edrn|mcl] (defaults to edrn)"  1>&2
+    exit 1
+}
+
+if [ $# -eq 0 ]; then
+    portal="edrn"
+elif [ $# -ne 1 ]; then
+    usage
+else
+    portal="$1"
+fi
+if [ "$portal" != "edrn" -a "$portal" != "mcl" ]; then
+    usage
+fi
+
+url="https://$portal.nci.nih.gov/logs/instance.log"
+
+/usr/bin/curl \
+    --basic \
+    --location \
+    --silent \
+    --user "kellysc:${nih_kellysc_password}" \
+    $url
