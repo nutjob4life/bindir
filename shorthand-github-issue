@@ -1,0 +1,14 @@
+#!/bin/sh
+#
+# Convert a URL to a GitHub on the pasteboard to its short format.
+#
+# For example, if you have
+#   https://github.com/EDRN/P5/issues/120
+# you will get
+#   EDRN/P5#120
+#
+
+PATH=/usr/bin:/bin:/usr/local/bin
+export PATH
+
+pbpaste | sed -e 's=https://github.com/==g' -e 's=/issues/=#=g' | pbcopy
