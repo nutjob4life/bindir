@@ -16,3 +16,4 @@ yamale
 yamllint
 markdown2
 jsvc
+versioneer
