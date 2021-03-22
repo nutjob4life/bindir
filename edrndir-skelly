@@ -10,7 +10,8 @@ exec /usr/bin/env LDAPTLS_REQCERT=never \
     -b dc=edrn,dc=jpl,dc=nasa,dc=gov \
     -s one \
     -D uid=skelly,dc=edrn,dc=jpl,dc=nasa,dc=gov \
-    -H ldaps://edrn.jpl.nasa.gov \
+    -H ldaps://edrn-ds.jpl.nasa.gov \
     -w "$edrn_skelly_password" \
+    -z 0 \
     -x \
     "$@"
