@@ -1,0 +1,16 @@
+#!/bin/sh
+#
+# edrndir - Search EDRN's Directory Service
+#
+
+. $HOME/.secrets/passwords.sh
+
+exec /usr/bin/env LDAPTLS_REQCERT=never \
+     /usr/bin/ldapsearch \
+    -b dc=edrn,dc=jpl,dc=nasa,dc=gov \
+    -s one \
+    -D uid=service,dc=edrn,dc=jpl,dc=nasa,dc=gov \
+    -H ldaps://localhost:1636 \
+    -w "$edrn_service_password" \
+    -x \
+    "$@"
