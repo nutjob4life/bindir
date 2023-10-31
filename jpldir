@@ -2,15 +2,20 @@
 #
 # jpldir - Search JPL's Directory Service
 #
+# TIL that there are interesting branches on dc=dir,dc=jpl,dc=nasa,dc=gov:
+#
+# - ou=personnel: users and groups
+# - ou=applications: service accounts
+# - ou=roles: roles for service accounts
 
 . $HOME/.secrets/passwords.sh
 
 exec /usr/bin/env LDAPTLS_REQCERT=never \
      /usr/bin/ldapsearch \
-    -b ou=personnel,dc=dir,dc=jpl,dc=nasa,dc=gov \
-    -s one \
+    -b dc=dir,dc=jpl,dc=nasa,dc=gov \
+    -s sub \
     -D uid=kelly,ou=personnel,dc=dir,dc=jpl,dc=nasa,dc=gov \
-    -H ldaps://ldap.jpl.nasa.gov \
+    -H ldaps://localhost:1637 \
     -w "$jpl_kelly_password" \
     -x \
     "$@"

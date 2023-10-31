@@ -10,7 +10,7 @@ exec /usr/bin/env LDAPTLS_REQCERT=never \
     -b o=MCL \
     -s sub \
     -D uid=kelly,ou=users,o=MCL \
-    -H ldaps://edrn-ds.jpl.nasa.gov \
+    -H ldaps://localhost:1636 \
     -w "$mcl_kelly_password" \
     -x \
     "$@"

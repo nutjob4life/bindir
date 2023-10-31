@@ -10,17 +10,7 @@ exec /usr/bin/env LDAPTLS_REQCERT=never \
     -b dc=edrn,dc=jpl,dc=nasa,dc=gov \
     -s one \
     -D uid=kelly,dc=edrn,dc=jpl,dc=nasa,dc=gov \
-    -H ldaps://edrn-ds.jpl.nasa.gov \
+    -H ldaps://localhost:1636 \
     -w "$edrn_kelly_password" \
     -x \
     "$@"
-
-# exec /usr/bin/env LDAPTLS_REQCERT=never \
-#      /usr/bin/ldapsearch \
-#     -b dc=edrn,dc=jpl,dc=nasa,dc=gov \
-#     -s one \
-#     -D uid=admin,ou=system \
-#     -H ldaps://edrn-ds.jpl.nasa.gov \
-#     -w "$edrn_ldap_manager_password" \
-#     -x \
-#     "$@"
