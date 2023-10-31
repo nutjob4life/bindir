@@ -4,6 +4,8 @@ aws*
 check-manifest
 container-diff
 deploy.sh
+detect-secrets
+detect-secrets-hook
 flake8
 jsvc
 keyring
@@ -11,6 +13,7 @@ markdown_py
 nistdir
 normalizer
 pip3.10
+pip3.11
 pkginfo
 postmanerator
 pqcli
@@ -21,6 +24,7 @@ pyflakes
 pygmentize
 pyproject-build
 pytest
+python3.11
 rst2html.py
 rst2html4.py
 rst2html5.py
