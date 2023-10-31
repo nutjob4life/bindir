@@ -11,4 +11,4 @@
 PATH=/usr/bin:/bin:/usr/local/bin
 export PATH
 
-pbpaste | sed -e 's=https://github.com/==g' -e 's=/issues/=#=g' -e 's=/pull/=#=g' | pbcopy
+pbpaste | sed -e 's=https://github.com/==g' -e 's=/issues/=#=g' -e 's=/pull/=#=g' -e 's/#event.*$//g' -e 's/#issuecomment-.*//g' -e 's/#pullrequestreview-.*//g' | pbcopy
