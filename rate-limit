@@ -1,0 +1,13 @@
+#!/bin/sh
+#
+
+. ${HOME}/.secrets/passwords.sh
+
+PATH=/usr/bin
+
+exec curl \
+    --silent \
+    --header 'Accept: application/vnd.github.v3+json' \
+    --user "kelly:${github_pat}" \
+    https://api.github.com/rate_limit \
+    | json_pp
