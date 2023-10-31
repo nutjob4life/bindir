@@ -1,0 +1,23 @@
+#!/bin/sh
+#
+# Kill stray Minecraft Launcher processes, while also leaving running
+# Minecraft games alone, because the Launcher hangs ALL THE TIME on
+# macOS and Linux.
+#
+# Worse, it respawns numerous child processes that also have to be
+# exterminated
+
+PATH=/usr/bin:/bin
+export PATH
+
+attempts=20
+
+while [ $attempts -gt 0 ]; do
+    procs=`ps uxww | egrep '[m]inecraft' | awk '$0 !~ /\.jar/ {print $2}'`
+    if [ "$procs" \!= "" ]; then
+        echo "Killing $procs" 1>&2
+        kill "$@" $procs
+    fi
+    attempts=`expr $attempts - 1`
+done
+
