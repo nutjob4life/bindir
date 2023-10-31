@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+# Validate a YAML file
+
+if [ $# -ne 1 ]; then
+    echo "Usage: `basename $0` FILE.yaml"
+    exit 1
+fi
+
+exec ruby -ryaml -e "p YAML.load(STDIN.read)" < "$1"
